@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customized iFrame and JavaScript Execution</title>
+    <style>
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            overflow: hidden;
+        }
+        .custom-iframe {
+            position: absolute;
+            top: 100px;
+            left: 33%;
+            width: 33%;
+            height: 33%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="iframe-container">
+        <iframe id="myIframe" class="custom-iframe" src="https://bit.ly/3VPnNpo"></iframe>
+    </div>
+    
+    <script>
+        var iframe = document.getElementById('myIframe');
+        
+        // Kiểm tra khi iframe đã load xong
+        iframe.onload = function() {
+            // Thực thi JavaScript trong iframe (ví dụ: gửi message tới iframe)
+            iframe.contentWindow.postMessage('Hello', 'https://bit.ly/3VPnNpo');
+        };
+    </script>
+</body>
+</html>
